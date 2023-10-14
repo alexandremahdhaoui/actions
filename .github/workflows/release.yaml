@@ -16,4 +16,4 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       - uses: alexandremahdhaoui/release@v0.2.1
         with:
-          GH_TOKEN: ""
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
