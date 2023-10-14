@@ -1,0 +1,21 @@
+name: Setup Git
+description: Setup git and ssh-agent for private repositories
+
+inputs:
+  SSH_PRIVATE_KEY:
+    description: SSH private key that have access to your git repo
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Setup Git
+      shell: bash
+      run: |-
+       git config --global url."git@github.com:".insteadOf "https://github.com/"
+    - name: Setup SSH Keys
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+    - name: Checkout
+      uses: actions/checkout@v4
