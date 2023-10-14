@@ -16,6 +16,6 @@ runs:
     - name: Setup SSH Keys
       uses: webfactory/ssh-agent@v0.7.0
       with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        ssh-private-key: ${{ inputs.SSH_PRIVATE_KEY }}
     - name: Checkout
       uses: actions/checkout@v4
